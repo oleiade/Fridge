@@ -10,6 +10,7 @@ from fabric.contrib.files import exists
 
 @task
 def mount(bucket_name, s3_endpoint="http://s3.amazonaws.com"):
+    """Mounts a s3fs partition synced with `bucket_name` bucket on hosts"""
     s3fs_exec = '/usr/local/bin/s3fs'
 
     if not exists('/mnt/s3'):
@@ -22,12 +23,14 @@ def mount(bucket_name, s3_endpoint="http://s3.amazonaws.com"):
 
 @task
 def umount(mountpoint='/mnt/s3'):
+    """Unmounts s3fs partition on hosts"""
     if exists(mountpoint):
         sudo('umount %s' % mountpoint)
 
 
 @task
 def credentials(aws_access_key, aws_secret_key):
+    """Creates a aws credential file with correct rights on hosts"""
     # Generate s3fs passwd file with credentials
     sudo('echo "{accesskey}:{secretkey}" > /etc/passwd-s3fs'
          .format(accesskey=aws_access_key, secretkey=aws_secret_key))

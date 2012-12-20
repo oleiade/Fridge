@@ -10,6 +10,7 @@ from fabtools import require
 
 @task
 def bootstrap():
+    """Bootstraps the hosts with needed packages and softs"""
     versioning()
     s3fs()
     pureftpd()
@@ -53,6 +54,7 @@ def s3fs():
 
 @task
 def pureftpd():
+    """Installs pureftpd on host"""
     # Install pureftpd packages
     require.deb.packages([
         'pure-ftpd',
@@ -62,6 +64,7 @@ def pureftpd():
 
 @task
 def versioning():
+    """Install common versioning tools on host"""
     require.deb.packages([
         'git-core',
         'mercurial',

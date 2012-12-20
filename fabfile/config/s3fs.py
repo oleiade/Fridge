@@ -29,8 +29,11 @@ def umount(mountpoint='/mnt/s3'):
 
 
 @task
-def credentials(aws_access_key, aws_secret_key):
+def credentials(aws_access_key=None, aws_secret_key=None):
     """Creates a aws credential file with correct rights on hosts"""
+    aws_access_key = aws_access_key or env.aws_access_key
+    aws_secret_key = aws_secret_key or env.aws_secret_key
+
     # Generate s3fs passwd file with credentials
     sudo('echo "{accesskey}:{secretkey}" > /etc/passwd-s3fs'
          .format(accesskey=aws_access_key, secretkey=aws_secret_key))

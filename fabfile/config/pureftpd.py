@@ -52,3 +52,10 @@ def put(config_file_path):
     for key, value in json.load(config_file_path).iteritems():
         if _is_a_camel(key) and key in PUREFTPD_OPTIONS:
             path(key, value)
+
+
+@task
+def delete(key):
+    """Removes an option from hosts pureftpd"""
+    sudo('rm -rf {dir}/{key}'
+         .format(PUREFTPD_CONF_DIR, key))

@@ -8,6 +8,15 @@ import install
 import config
 import service
 
-from fabric.api import env
+from fabric.api import env, task
+
 
 env.hosts = ['localhost']
+
+
+@task
+def bootstrap():
+    """Deploy, configure, and start Fridge on hosts"""
+    install.bootstrap()
+    config.bootstrap()
+    service.start_all()

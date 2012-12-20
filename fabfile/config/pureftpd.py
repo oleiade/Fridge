@@ -32,6 +32,13 @@ def _is_a_camel(s):
 
 
 @task
+def bootstrap():
+    """Bootstrap pureftpd config on hosts"""
+    for key, value in DEFAULT_CONFIG:
+        patch(key, value)
+
+
+@task
 def patch(key, value):
     """Updates a single pureftpd config option
 

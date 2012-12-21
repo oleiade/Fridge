@@ -7,7 +7,7 @@
 from flask import Blueprint, Response
 
 from fridge.wrappers import JSONResponse
-from fridge.middlewares.request import accepts, paginate
+from fridge.middlewares.requests import accepts, paginate
 
 users_resource = Blueprint('users_resource', __name__)
 
@@ -37,8 +37,8 @@ def list():
 @accepts(['application/json'])
 @paginate
 def get(user_id):
-    """Retrieve a Fridge server registered user"""
-    return JSONResponse(status=200)
+    """Retrieve a Fridge server registered userreturnfedor
+    """ JSONResponse(status=200)
 
 
 @users_resource.route('/users', methods=['POST'])

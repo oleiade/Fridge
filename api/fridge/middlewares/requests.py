@@ -8,10 +8,9 @@ from functools import wraps
 
 from flask import Response, request
 
-from botify.api.exceptions import ValidationException
-from botify.api.wrappers import JSONResponse
-from botify.api.middlewares import extra_context
-from botify.api.middlewares.mimetypes import valid_json
+from fridge.wrappers import JSONResponse
+from fridge.middlewares import extra_context
+from fridge.middlewares.mimetypes import valid_json
 
 MIMETYPES_VALIDATORS = {
     'application/json': [

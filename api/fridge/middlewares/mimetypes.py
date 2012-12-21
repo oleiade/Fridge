@@ -7,7 +7,7 @@
 from flask import request
 from flask.exceptions import JSONBadRequest
 
-from botify.api.wrappers import JSONResponse
+from fridge.wrappers import JSONResponse
 
 
 def valid_json():

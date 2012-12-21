@@ -4,4 +4,10 @@
 #
 # See the file LICENSE for copying permission.
 
-from .users.actions import user_resources
+version = (0, 1, 'a')
+
+__title__ = "Fridge api"
+__author__ = "Oleiade"
+__license__ = "MIT"
+
+__version__ = '.'.join(map(str, version))

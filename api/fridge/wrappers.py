@@ -5,7 +5,7 @@
 # See the file LICENSE for copying permission.
 
 from flask import Response
-import simplejson as json
+import ujson as json
 
 
 class JSONResponse(Response):

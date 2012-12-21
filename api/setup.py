@@ -32,5 +32,9 @@ setup(
         'fridge.resources',
     ],
     package_dir={'': '.'},
-    zip_safe=False,
+
+    install_requires=[
+        'flask>=0.9',
+        'ujson==1.23',
+    ],
 )
